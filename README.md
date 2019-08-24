@@ -1,4 +1,4 @@
 # nik-first
 **Hi!**
 
-'I'm beginner in Git and in programming.'
+***I'm beginner in Git and in programming.***
