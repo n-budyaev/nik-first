@@ -5,11 +5,11 @@ import psutil
 #utf-8
 
 print("Дароу")
-name = input("Как тебя зовут?")
+name = input("Как тебя зовут?\n")
 print("Добро пожаловать, ",name, " (я знаю я даун)")
 print("Кароче, это типо бот")
 print("Готов поработать,",name)
-agree = input("Y/N ")
+agree = input("Y/N\n")
 if agree == "Y" or 'y':
     print("Начнем!")
     print("Кароче, это супер пупер навороченный бот")
@@ -22,7 +22,7 @@ if agree == "Y" or 'y':
     print("5 - удалить дубликаты файлов в указанной папке")
     print("9 - Для выхода")
     print()
-    do = int(input("1/2/3/4/5/9"))
+    do = int(input("1/2/3/4/5/9\n"))
     print()
     if do == 1:
         print()
@@ -40,30 +40,34 @@ if agree == "Y" or 'y':
     elif do == 4:
         print()
         print("дублирование файлов в в указанной папке")
-        dir_name = input("Введите имя папки для дублирования файлов  ")
+        dir_name = input("Введите имя папки для дублирования файлов \n")
         file_list = os.listdir(dir_name)
         i = 0
+        j = 0
         while i < len(file_list):
 # Необходимо выполнить проверку isfile, т.к. при попытке копирования директории будет возникать ошибка                
             if os.path.isfile(file_list[i]):
                 newfile = file_list[i] + '.dupl'
                 shutil.copy(file_list[i], newfile)
                 print(newfile)
+                j +=1
             i += 1
-        print("Создано ", len(file_list), " дубликатов")
+        print("Создано ", j, " дубликатов")
     elif do == 5:
         print("Удаление файлов с расширением .dupl в указанной папке")
-        dir_name = input("Введите имя папки для дублирования файлов")
+        dir_name = input("Введите имя папки для дублирования файлов\n")
         print()
         file_list = os.listdir(dir_name)
         i = 0
+        j = 0
         while i < len(file_list):
             full_name = os.path.join(dir_name,file_list[i])
             if full_name.endswith('.dupl'):
                 print(file_list[i])
                 os.remove(full_name)
+                j +=1
             i += 1
-        print("Удалено ", len(file_list), " файлов")
+        print("Удалено ", j, " файлов")
     elif do == 9:
         print("Покеда")
     else:
